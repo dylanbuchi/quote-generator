@@ -43,6 +43,7 @@ body {
 }
 
 .quote-author {
+    padding-top: 25px;
     padding-bottom: 20px;
     font-style: italic;
     font-weight: 200;
