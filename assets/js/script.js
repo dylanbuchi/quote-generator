@@ -21,7 +21,7 @@ function hideLoading(params) {
 // Get Quote from Api
 async function getQuote() {
     // break recursion to not go into infinite loop if error occurs
-    if (errorCount > 10) {
+    if (errorCount > 20) {
         return;
     }
 
@@ -52,6 +52,8 @@ async function getQuote() {
         console.log("Error!"), error;
         getQuote();
     }
+    // reset error count if no errors
+    errorCount = 0;
 }
 
 function TweetQuote() {
