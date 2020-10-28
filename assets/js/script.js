@@ -14,13 +14,18 @@ async function getQuote() {
         const data = await response.json();
 
         quoteAuthor.innerText = data.quoteAuthor;
+        quoteText.innerText = data.quoteText;
 
+        // if author is empty set it to 'Someone'
         if (!quoteAuthor.innerText) {
             quoteAuthor.innerText = "Someone";
         }
-
-        quoteText.innerText = data.quoteText;
-        console.log(data);
+        // if quote is long transform it into a lower font-size
+        if (quoteText.innerText.length > 100) {
+            quoteText.classList.add("quote-be-smaller");
+        } else {
+            quoteText.classList.remove("quote-be-smaller");
+        }
     } catch (error) {
         getQuote();
         console.log("Error, No Quote"), error;

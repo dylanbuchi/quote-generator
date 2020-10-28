@@ -30,6 +30,11 @@ body {
     padding: 10px 0px;
 }
 
+/* see script.js line 23-25 */
+.quote-be-smaller {
+    font-size: 2rem;
+}
+
 #quote:hover {
     color: rgb(255, 0, 0);
 }
