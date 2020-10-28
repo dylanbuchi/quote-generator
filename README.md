@@ -1,2 +1,2 @@
 # quote-generator
-Generate random quotes using an API. Created with VanillaJS.
+Generate random quotes using an API, and share them on Twitter. Created with VanillaJS.
