@@ -1,11 +1,26 @@
 const quoteBox = document.getElementById("quote-box");
 const quoteAuthor = document.getElementById("author-name");
 const quoteText = document.getElementById("quote");
+
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 
+const loader = document.getElementById("loader");
+
+function loading() {
+    loader.hidden = false;
+    quoteBox.hidden = true;
+}
+
+function completeLoading(params) {
+    if (!loader.hidden) {
+        loader.hidden = true;
+        quoteBox.hidden = false;
+    }
+}
 // Get Quote from Api
 async function getQuote() {
+    loading();
     const proxy = "https://fast-eyrie-79953.herokuapp.com/";
     const url =
         "http://api.forismatic.com/api/1.0/?method=getQuote&lang=en&format=json";
@@ -26,6 +41,7 @@ async function getQuote() {
         } else {
             quoteText.classList.remove("quote-be-smaller");
         }
+        completeLoading();
     } catch (error) {
         getQuote();
         console.log("Error, No Quote"), error;
